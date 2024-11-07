@@ -17,9 +17,10 @@ class PlayerBallAssignment:
             distance_right_foot = measure_distance((player_bbox[2], player_bbox[-1]), ball_position)
             distance = min(distance_left_foot, distance_right_foot)
             
-            if distance < minimum_distance:
-                minimum_distance = distance
-                assigned_player = player_id
+            if distance < self.max_player_ball_distance:
+                if distance < minimum_distance:
+                    minimum_distance = distance
+                    assigned_player = player_id
                 
         return assigned_player
         
